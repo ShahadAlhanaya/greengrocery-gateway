@@ -64,22 +64,25 @@ const About = () => {
             {milestones.map((milestone, index) => (
               <div 
                 key={index} 
-                className={`flex items-start gap-6 opacity-0 animate-[fade-in_0.5s_ease-out_forwards] ${isRTL ? 'flex-row-reverse' : ''}`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`flex items-start gap-6 opacity-0 animate-[fade-in_0.5s_ease-out_forwards]`}
+                style={{ 
+                  animationDelay: `${index * 0.2}s`,
+                  flexDirection: isRTL ? 'row' : 'row-reverse'
+                }}
               >
-                <div className="flex-shrink-0 relative">
-                  <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center transform transition-transform hover:scale-110 hover:rotate-12">
-                    <Clock className="h-8 w-8 text-text" />
-                  </div>
-                  {index !== milestones.length - 1 && (
-                    <div className={`absolute w-0.5 bg-accent/20 h-24 ${isRTL ? '-right-3' : '-left-3'} top-20 transform ${isRTL ? 'translate-x-1/2' : '-translate-x-1/2'}`} />
-                  )}
-                </div>
                 <div className="flex-grow pt-2">
                   <div className="font-bold text-2xl mb-2 text-accent">{milestone.year}</div>
                   <p className="text-text-light text-lg">
                     {language === 'en' ? milestone.en : milestone.ar}
                   </p>
+                </div>
+                <div className="flex-shrink-0 relative">
+                  <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center transform transition-transform hover:scale-110 hover:rotate-12">
+                    <Clock className="h-8 w-8 text-text" />
+                  </div>
+                  {index !== milestones.length - 1 && (
+                    <div className={`absolute w-0.5 bg-accent/20 h-24 ${isRTL ? '-left-3' : '-right-3'} top-20 transform ${isRTL ? '-translate-x-1/2' : 'translate-x-1/2'}`} />
+                  )}
                 </div>
               </div>
             ))}
