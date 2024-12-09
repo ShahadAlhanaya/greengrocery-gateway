@@ -20,6 +20,10 @@ export default {
     extend: {
       colors: {
         border: "hsl(var(--border))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          light: "#F6F6F7",
+        },
         accent: {
           DEFAULT: "#aaff0b",
           hover: "#99e60a",
@@ -27,9 +31,6 @@ export default {
         text: {
           DEFAULT: "#1A1F2C",
           light: "#4A5568",
-        },
-        background: {
-          light: "#F6F6F7",
         },
       },
       fontFamily: {
