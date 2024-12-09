@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 
@@ -28,7 +29,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
               </Routes>
