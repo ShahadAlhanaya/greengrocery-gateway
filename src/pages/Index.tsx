@@ -147,18 +147,18 @@ const Index = () => {
           
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
               dragFree: true,
             }}
-            className="w-full max-w-screen-xl mx-auto"
+            className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-3">
+            <CarouselContent className="-ml-2 md:-ml-3 flex-1">
               {categories.map((category, index) => (
                 <CarouselItem 
                   key={index} 
                   className="pl-2 md:pl-3"
-                  style={{ flex: '0 0 80px' }} // Fixed width of 80px
+                  style={{ flex: '0 0 80px' }}
                 >
                   <button 
                     className="w-full h-full rounded-lg bg-white transition-all duration-300 hover:bg-accent group focus:outline-none focus:ring-2 focus:ring-accent"
