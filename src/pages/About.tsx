@@ -28,7 +28,7 @@ const About = () => {
   ];
 
   return (
-    <div className="container mx-auto px-6 md:px-8 lg:px-12 py-12 max-w-4xl animate-fade-in">
+    <div className="container mx-auto px-4 md:px-8 lg:px-12 py-12 max-w-4xl animate-fade-in">
       <section className={`${isRTL ? 'text-right' : 'text-left'}`}>
         <h1 className="text-4xl font-bold mb-8">
           {language === 'en' ? 'About Us' : 'من نحن'}
@@ -44,7 +44,7 @@ const About = () => {
         </div>
 
         {/* Founding Story */}
-        <div className="mb-8">
+        <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">
             {language === 'en' ? 'Our Story' : 'قصتنا'}
           </h2>
@@ -57,32 +57,29 @@ const About = () => {
 
         {/* Timeline */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">
+          <h2 className="text-2xl font-semibold mb-8">
             {language === 'en' ? 'Our Journey' : 'مسيرتنا'}
           </h2>
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {milestones.map((milestone, index) => (
               <div 
                 key={index} 
-                className={`flex items-start gap-6 opacity-0 animate-[fade-in_0.5s_ease-out_forwards]`}
-                style={{ 
-                  animationDelay: `${index * 0.2}s`,
-                  flexDirection: isRTL ? 'row' : 'row-reverse'
-                }}
+                className={`flex flex-col md:flex-row items-center md:items-start gap-6 opacity-0 animate-[fade-in_0.5s_ease-out_forwards] ${isRTL ? 'md:flex-row-reverse' : ''}`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="flex-grow pt-2">
-                  <div className="font-bold text-2xl mb-2 text-accent">{milestone.year}</div>
-                  <p className="text-text-light text-lg">
-                    {language === 'en' ? milestone.en : milestone.ar}
-                  </p>
-                </div>
-                <div className="flex-shrink-0 relative">
-                  <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center transform transition-transform hover:scale-110 hover:rotate-12">
-                    <Clock className="h-8 w-8 text-text" />
+                <div className="relative">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-accent rounded-full flex items-center justify-center transform transition-transform hover:scale-110 hover:rotate-12">
+                    <Clock className="h-6 w-6 md:h-8 md:w-8 text-text" />
                   </div>
                   {index !== milestones.length - 1 && (
-                    <div className={`absolute w-0.5 bg-accent/20 h-24 ${isRTL ? '-left-3' : '-right-3'} top-20 transform ${isRTL ? '-translate-x-1/2' : 'translate-x-1/2'}`} />
+                    <div className="absolute w-0.5 bg-accent/20 h-16 md:h-24 left-1/2 transform -translate-x-1/2 top-16 md:top-20" />
                   )}
+                </div>
+                <div className={`flex-grow text-center md:text-${isRTL ? 'right' : 'left'}`}>
+                  <div className="font-bold text-xl md:text-2xl mb-2 text-accent">{milestone.year}</div>
+                  <p className="text-text-light text-base md:text-lg">
+                    {language === 'en' ? milestone.en : milestone.ar}
+                  </p>
                 </div>
               </div>
             ))}
