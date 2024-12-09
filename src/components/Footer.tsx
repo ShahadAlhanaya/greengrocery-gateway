@@ -8,7 +8,6 @@ const Footer = () => {
   const quickLinks = [
     { href: '/', label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home' },
     { href: '/about', label: language === 'ar' ? 'من نحن' : 'About Us' },
-    { href: '/careers', label: language === 'ar' ? 'الوظائف' : 'Careers' },
     { href: '/shop', label: language === 'ar' ? 'التسوق' : 'Shopping' },
     { href: '/privacy', label: language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' },
     { href: '/terms', label: language === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions' },
@@ -17,6 +16,11 @@ const Footer = () => {
   const helpLinks = [
     { href: '/faq', label: language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ' },
     { href: '/contact', label: language === 'ar' ? 'اتصل بنا' : 'Contact Us' },
+  ];
+
+  const joinUsLinks = [
+    { href: '/become-supplier', label: language === 'ar' ? 'كن موردًا' : 'Become a Supplier' },
+    { href: '/careers', label: language === 'ar' ? 'الوظائف' : 'Careers' },
   ];
 
   const socialLinks = [
@@ -88,25 +92,23 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Join Us Section */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white">
-              {language === 'ar' ? 'تواصل معنا' : 'Connect With Us'}
+              {language === 'ar' ? 'انضم إلينا' : 'Join Us'}
             </h3>
-            <div className="flex flex-wrap gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-accent transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
+            <ul className="space-y-3">
+              {joinUsLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-gray-400 hover:text-accent transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Download App */}
@@ -134,6 +136,22 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Social Media Icons */}
+        <div className="flex justify-center gap-4 mb-8">
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-accent transition-colors"
+              aria-label={social.label}
+            >
+              <social.icon className="w-4 h-4" />
+            </a>
+          ))}
+        </div>
+
         {/* Company Info */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex justify-center">
@@ -143,9 +161,9 @@ const Footer = () => {
                 alt="VAT Certificate"
                 className="h-16 w-auto"
               />
-              <div className="text-gray-400">
-                <p className="font-medium">CR 36633636</p>
-                <p className="font-medium">VAT 3838383838322323</p>
+              <div className="text-gray-400 text-sm">
+                <p>CR 36633636</p>
+                <p>VAT 3838383838322323</p>
               </div>
             </div>
           </div>
