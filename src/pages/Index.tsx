@@ -151,21 +151,26 @@ const Index = () => {
               loop: true,
               dragFree: true,
             }}
-            className="w-full"
+            className="w-full max-w-screen-xl mx-auto"
           >
-            <CarouselContent className="-ml-2">
+            <CarouselContent className="-ml-2 md:-ml-3">
               {categories.map((category, index) => (
-                <CarouselItem key={index} className="pl-2 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
+                <CarouselItem 
+                  key={index} 
+                  className="pl-2 md:pl-3"
+                  style={{ flex: '0 0 80px' }} // Fixed width of 80px
+                >
                   <button 
-                    className="w-full p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+                    className="w-full h-full rounded-lg bg-white transition-all duration-300 hover:bg-accent group focus:outline-none focus:ring-2 focus:ring-accent"
+                    onClick={() => console.log(`Clicked ${category.name}`)}
                   >
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="p-2 rounded-full">
+                    <div className="flex flex-col items-center justify-center p-2 space-y-2">
+                      <div className="w-10 h-10 flex items-center justify-center">
                         {React.cloneElement(category.icon, { 
-                          className: "w-5 h-5 text-text"
+                          className: "w-8 h-8 text-text group-hover:text-text transition-colors"
                         })}
                       </div>
-                      <span className="text-xs font-medium text-text text-center">
+                      <span className="text-xs font-medium text-text group-hover:text-text text-center line-clamp-2 min-h-[2.5rem]">
                         {category.name}
                       </span>
                     </div>
@@ -173,8 +178,12 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious 
+              className="hidden md:flex -left-4 h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text"
+            />
+            <CarouselNext 
+              className="hidden md:flex -right-4 h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text"
+            />
           </Carousel>
         </div>
       </section>
