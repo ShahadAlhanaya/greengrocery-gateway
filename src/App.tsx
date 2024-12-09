@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<About />} />
                 <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
               </Routes>
             </main>
             <Footer />
