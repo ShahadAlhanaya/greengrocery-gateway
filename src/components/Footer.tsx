@@ -10,11 +10,7 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { 
-      href: '/', 
-      label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home',
-      onClick: scrollToTop 
-    },
+    { href: '/', label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home' },
     { href: '/about', label: language === 'ar' ? 'من نحن' : 'About Us' },
     { href: '/shop', label: language === 'ar' ? 'التسوق' : 'Shopping' },
     { href: '/privacy', label: language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' },
@@ -73,7 +69,7 @@ const Footer = () => {
                   <Link
                     to={link.href}
                     className="text-gray-400 hover:text-accent transition-colors"
-                    onClick={link.onClick}
+                    onClick={scrollToTop}
                   >
                     {link.label}
                   </Link>
@@ -93,6 +89,7 @@ const Footer = () => {
                   <Link
                     to={link.href}
                     className="text-gray-400 hover:text-accent transition-colors"
+                    onClick={scrollToTop}
                   >
                     {link.label}
                   </Link>
@@ -112,6 +109,7 @@ const Footer = () => {
                   <Link
                     to={link.href}
                     className="text-gray-400 hover:text-accent transition-colors"
+                    onClick={scrollToTop}
                   >
                     {link.label}
                   </Link>
