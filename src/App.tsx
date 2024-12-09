@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,8 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<About />} />
+                <Route path="/privacy" element={<Privacy />} />
               </Routes>
             </main>
             <Footer />
