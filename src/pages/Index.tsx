@@ -1,9 +1,32 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { AppleIcon, PlayIcon, Truck, Package, Clock } from "lucide-react";
+import { AppleIcon, PlayIcon, Truck, Package, Clock, Apple, Carrot, Cherry, Coffee, Egg, Milk, Pizza, Rice, Salad, ShoppingBag, ShoppingCart } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Index = () => {
   const { language } = useLanguage();
+
+  const categories = [
+    { icon: <Apple />, name: language === 'ar' ? 'فواكه' : 'Fruits' },
+    { icon: <Carrot />, name: language === 'ar' ? 'خضروات' : 'Vegetables' },
+    { icon: <Salad />, name: language === 'ar' ? 'أعشاب' : 'Herbs' },
+    { icon: <Rice />, name: language === 'ar' ? 'أرز' : 'Rice' },
+    { icon: <ShoppingBag />, name: language === 'ar' ? 'معلبات' : 'Cans' },
+    { icon: <Coffee />, name: language === 'ar' ? 'قهوة' : 'Coffee' },
+    { icon: <Pizza />, name: language === 'ar' ? 'وجبات خفيفة' : 'Snacks' },
+    { icon: <Egg />, name: language === 'ar' ? 'بيض' : 'Eggs' },
+    { icon: <Milk />, name: language === 'ar' ? 'ألبان' : 'Dairy' },
+    { icon: <ShoppingCart />, name: language === 'ar' ? 'مخبوزات' : 'Bakery' },
+    { icon: <Cherry />, name: language === 'ar' ? 'مستلزمات الحيوانات الأليفة' : 'Pet Supplies' },
+    { icon: <ShoppingBag />, name: language === 'ar' ? 'صيدلية' : 'Pharmacy' },
+    { icon: <ShoppingBag />, name: language === 'ar' ? 'مكياج' : 'Makeup' },
+  ];
 
   return (
     <div className="animate-fade-in">
@@ -111,6 +134,46 @@ const Index = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className="py-12 bg-background-light">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            {language === 'ar' ? 'تسوق حسب الفئة' : 'Shop by Category'}
+          </h2>
+          
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {categories.map((category, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6">
+                  <button 
+                    className="w-full p-4 rounded-lg bg-white transition-all duration-300 hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent"
+                  >
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="p-3 rounded-full bg-background">
+                        {React.cloneElement(category.icon, { 
+                          className: "w-6 h-6 text-text"
+                        })}
+                      </div>
+                      <span className="text-sm font-medium text-text text-center whitespace-normal">
+                        {category.name}
+                      </span>
+                    </div>
+                  </button>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </section>
     </div>
