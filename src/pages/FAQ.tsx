@@ -65,7 +65,7 @@ const FAQ = () => {
   const { language, isRTL } = useLanguage();
 
   return (
-    <div className="container mx-auto px-4 py-12 animate-fade-in">
+    <div className="container mx-auto px-6 md:px-8 lg:px-12 py-12 max-w-4xl animate-fade-in">
       <h1 className={`text-4xl font-bold mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
         {language === 'en' ? 'Frequently Asked Questions' : 'الأسئلة الشائعة'}
       </h1>
@@ -75,14 +75,18 @@ const FAQ = () => {
           <AccordionItem
             key={faq.id}
             value={faq.id}
-            className="border rounded-lg overflow-hidden hover:border-accent transition-colors"
+            className="border rounded-md overflow-hidden hover:border-accent transition-colors"
           >
-            <AccordionTrigger className={`px-6 py-4 ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
+            <AccordionTrigger 
+              className={`px-6 py-4 ${isRTL ? 'flex-row-reverse justify-between' : 'text-left'}`}
+            >
               <span className="text-lg">
                 {language === 'en' ? faq.question.en : faq.question.ar}
               </span>
             </AccordionTrigger>
-            <AccordionContent className={`px-6 py-4 text-text-light ${isRTL ? 'text-right' : 'text-left'}`}>
+            <AccordionContent 
+              className={`px-6 py-4 text-text-light ${isRTL ? 'text-right' : 'text-left'}`}
+            >
               {language === 'en' ? faq.answer.en : faq.answer.ar}
             </AccordionContent>
           </AccordionItem>
