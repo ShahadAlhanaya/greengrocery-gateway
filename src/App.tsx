@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Index from "./pages/Index";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
             <main className="flex-grow pt-16">
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/faq" element={<FAQ />} />
               </Routes>
             </main>
             <Footer />
