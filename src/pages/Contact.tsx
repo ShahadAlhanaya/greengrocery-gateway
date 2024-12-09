@@ -38,7 +38,7 @@ const Contact = () => {
     <div className="container mx-auto px-6 md:px-8 lg:px-12 py-12 max-w-4xl animate-fade-in">
       <section className={`${isRTL ? 'text-right' : 'text-left'}`}>
         <h1 className="text-4xl font-bold mb-8">
-          {language === 'en' ? 'Contact Us' : 'اتصل بنا'}
+          {language === 'en' ? 'Contact Us' : 'تواصل معنا'}
         </h1>
 
         <div className="grid md:grid-cols-2 gap-12">
