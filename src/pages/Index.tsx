@@ -31,7 +31,6 @@ const Index = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center justify-center py-20">
         {/* Background Image with Overlay */}
         <div 
@@ -153,12 +152,12 @@ const Index = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-3 flex-1">
+            <CarouselContent className="-ml-2 md:-ml-3">
               {categories.map((category, index) => (
                 <CarouselItem 
                   key={index} 
-                  className="pl-2 md:pl-3 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8"
-                  style={{ minWidth: '80px' }}
+                  className="pl-2 md:pl-3"
+                  style={{ flex: '0 0 80px' }}
                 >
                   <button 
                     className="w-full h-full rounded-lg bg-white transition-all duration-300 hover:bg-accent group focus:outline-none focus:ring-2 focus:ring-accent"
