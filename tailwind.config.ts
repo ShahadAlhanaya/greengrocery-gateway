@@ -24,6 +24,7 @@ export default {
           DEFAULT: "hsl(var(--background))",
           light: "#F6F6F7",
         },
+        foreground: "hsl(var(--foreground))",
         accent: {
           DEFAULT: "#aaff0b",
           hover: "#99e60a",
