@@ -157,8 +157,8 @@ const Index = () => {
               {categories.map((category, index) => (
                 <CarouselItem 
                   key={index} 
-                  className="pl-2 md:pl-3"
-                  style={{ flex: '0 0 80px' }}
+                  className="pl-2 md:pl-3 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8"
+                  style={{ minWidth: '80px' }}
                 >
                   <button 
                     className="w-full h-full rounded-lg bg-white transition-all duration-300 hover:bg-accent group focus:outline-none focus:ring-2 focus:ring-accent"
