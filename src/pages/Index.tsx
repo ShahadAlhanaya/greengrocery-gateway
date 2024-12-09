@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { AppleIcon, PlayIcon, Truck, Package, Clock, Apple, Carrot, Cherry, Coffee, Egg, Milk, Pizza, Wheat, Salad, ShoppingBag, ShoppingCart } from "lucide-react";
+import { Truck, Package, Clock, Apple, Carrot, Cherry, Coffee, Egg, Milk, Pizza, Wheat, Salad, ShoppingBag, ShoppingCart } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -56,21 +56,40 @@ const Index = () => {
                 : 'Order fresh groceries and we will deliver them to your home in no time'}
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Button 
-                variant="outline" 
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+              <a 
+                href="#" 
+                className="w-[140px] transition-transform hover:scale-105"
+                aria-label="Download for iOS"
               >
-                <AppleIcon className="mr-2 h-5 w-5" />
-                {language === 'ar' ? 'متجر آبل' : 'App Store'}
-              </Button>
-              <Button 
-                variant="outline" 
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                <img 
+                  src="/assets/images/appstore-download.png" 
+                  alt="Download for iOS" 
+                  className="w-full h-auto"
+                />
+              </a>
+              <a 
+                href="#" 
+                className="w-[140px] transition-transform hover:scale-105"
+                aria-label="Download for Android"
               >
-                <PlayIcon className="mr-2 h-5 w-5" />
-                {language === 'ar' ? 'متجر جوجل' : 'Google Play'}
-              </Button>
+                <img 
+                  src="/assets/images/googleplay-download.png" 
+                  alt="Download for Android" 
+                  className="w-full h-auto"
+                />
+              </a>
+              <a 
+                href="#" 
+                className="w-[140px] transition-transform hover:scale-105"
+                aria-label="Download for Huawei"
+              >
+                <img 
+                  src="/assets/images/appgallery-download.png" 
+                  alt="Download for Huawei" 
+                  className="w-full h-auto"
+                />
+              </a>
             </div>
 
             <Button 
