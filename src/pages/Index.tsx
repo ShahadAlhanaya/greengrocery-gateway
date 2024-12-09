@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const Index = () => {
   const { language, isRTL } = useLanguage();
@@ -29,10 +30,27 @@ const Index = () => {
     { icon: <ShoppingBag />, name: language === 'ar' ? 'مكياج' : 'Makeup' },
   ];
 
+  const stats = [
+    {
+      value: 3,
+      suffix: language === 'ar' ? ' مليون+' : 'M+',
+      description: language === 'ar' ? 'عنصر تم تسليمه' : 'items delivered'
+    },
+    {
+      value: 600000,
+      suffix: '+',
+      description: language === 'ar' ? 'خبير بقالة' : 'grocery experts'
+    },
+    {
+      value: 45,
+      suffix: language === 'ar' ? ' مليون+' : 'M+',
+      description: language === 'ar' ? 'طلب تم تسليمه' : 'orders delivered'
+    }
+  ];
+
   return (
     <main>
       <section className="relative min-h-[600px] flex items-center justify-center py-20">
-        {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 z-0" 
           style={{
@@ -44,7 +62,6 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
@@ -58,7 +75,6 @@ const Index = () => {
                 : 'Order fresh groceries and we will deliver them to your home in no time'}
             </p>
 
-            {/* App Download Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <Button 
                 variant="outline" 
@@ -76,7 +92,6 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Start Shopping Button */}
             <Button 
               className="bg-accent hover:bg-accent-hover text-text font-medium text-lg px-8 py-6"
             >
@@ -89,7 +104,6 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {/* Doorstep Delivery */}
             <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
               <div className="mb-6 p-4 rounded-full bg-accent/10">
                 <Truck className="h-8 w-8 text-text" />
@@ -104,7 +118,6 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Variety of Products */}
             <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
               <div className="mb-6 p-4 rounded-full bg-accent/10">
                 <Package className="h-8 w-8 text-text" />
@@ -119,7 +132,6 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Anytime Delivery */}
             <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
               <div className="mb-6 p-4 rounded-full bg-accent/10">
                 <Clock className="h-8 w-8 text-text" />
@@ -137,7 +149,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Categories Section */}
       <section className="py-12 bg-background-light">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
@@ -185,6 +196,30 @@ const Index = () => {
               className={`hidden md:flex ${isRTL ? '-left-4' : '-right-4'} h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text`}
             />
           </Carousel>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {stats.map((stat, index) => (
+              <div 
+                key={index}
+                className="flex flex-col items-center text-center p-6 rounded-lg bg-background-light animate-fade-in"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <h3 className="text-4xl md:text-5xl font-bold mb-3 text-text">
+                  <AnimatedCounter 
+                    end={stat.value} 
+                    suffix={stat.suffix}
+                  />
+                </h3>
+                <p className="text-text-light text-lg">
+                  {stat.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
