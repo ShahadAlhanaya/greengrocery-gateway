@@ -19,6 +19,7 @@ export default {
     },
     extend: {
       colors: {
+        border: "hsl(var(--border))",
         accent: {
           DEFAULT: "#aaff0b",
           hover: "#99e60a",
