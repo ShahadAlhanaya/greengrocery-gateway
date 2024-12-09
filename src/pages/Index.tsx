@@ -1,12 +1,13 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { AppleIcon, PlayIcon } from "lucide-react";
+import { AppleIcon, PlayIcon, Truck, Package, Clock } from "lucide-react";
 
 const Index = () => {
   const { language } = useLanguage();
 
   return (
     <div className="animate-fade-in">
+      {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center justify-center py-20">
         {/* Background Image with Overlay */}
         <div 
@@ -62,38 +63,53 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🚚",
-                title: language === 'ar' ? 'توصيل سريع' : 'Fast Delivery',
-                description: language === 'ar' 
-                  ? 'توصيل في نفس اليوم لجميع الطلبات' 
-                  : 'Same-day delivery for all orders'
-              },
-              {
-                icon: "🥬",
-                title: language === 'ar' ? 'منتجات طازجة' : 'Fresh Products',
-                description: language === 'ar'
-                  ? 'نختار أفضل المنتجات الطازجة لك'
-                  : 'We select the best fresh products for you'
-              },
-              {
-                icon: "💯",
-                title: language === 'ar' ? 'ضمان الجودة' : 'Quality Guaranteed',
-                description: language === 'ar'
-                  ? 'نضمن جودة جميع منتجاتنا'
-                  : 'We guarantee the quality of all our products'
-              }
-            ].map((feature, index) => (
-              <div key={index} className="text-center p-6">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-text-light">{feature.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {/* Doorstep Delivery */}
+            <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
+              <div className="mb-6 p-4 rounded-full bg-accent/10">
+                <Truck className="h-8 w-8 text-text" />
               </div>
-            ))}
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'ar' ? 'توصيل إلى باب المنزل' : 'Doorstep Delivery'}
+              </h3>
+              <p className="text-text-light">
+                {language === 'ar' 
+                  ? 'توصيل مريح إلى باب منزلك يوفر عليك الوقت والجهد.'
+                  : 'Convenient delivery right to your doorstep, saving you time and effort.'}
+              </p>
+            </div>
+
+            {/* Variety of Products */}
+            <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
+              <div className="mb-6 p-4 rounded-full bg-accent/10">
+                <Package className="h-8 w-8 text-text" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'ar' ? 'تنوع المنتجات' : 'Variety of Products'}
+              </h3>
+              <p className="text-text-light">
+                {language === 'ar'
+                  ? 'تسوق أكثر من 22,000 منتج لتلبية جميع احتياجاتك.'
+                  : 'Explore over 22,000 products to meet your every need.'}
+              </p>
+            </div>
+
+            {/* Anytime Delivery */}
+            <div className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-background-light">
+              <div className="mb-6 p-4 rounded-full bg-accent/10">
+                <Clock className="h-8 w-8 text-text" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'ar' ? 'التوصيل في أي وقت' : 'Anytime Delivery'}
+              </h3>
+              <p className="text-text-light">
+                {language === 'ar'
+                  ? 'اختر التوصيل الفوري الآن أو جدول موعد التوصيل المناسب لك.'
+                  : 'Choose express delivery now or schedule it at a time that works for you.'}
+              </p>
+            </div>
           </div>
         </div>
       </section>
