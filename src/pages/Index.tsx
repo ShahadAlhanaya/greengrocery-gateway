@@ -1,6 +1,7 @@
+import React from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { AppleIcon, PlayIcon, Truck, Package, Clock, Apple, Carrot, Cherry, Coffee, Egg, Milk, Pizza, Rice, Salad, ShoppingBag, ShoppingCart } from "lucide-react";
+import { AppleIcon, PlayIcon, Truck, Package, Clock, Apple, Carrot, Cherry, Coffee, Egg, Milk, Pizza, Wheat, Salad, ShoppingBag, ShoppingCart } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +17,7 @@ const Index = () => {
     { icon: <Apple />, name: language === 'ar' ? 'فواكه' : 'Fruits' },
     { icon: <Carrot />, name: language === 'ar' ? 'خضروات' : 'Vegetables' },
     { icon: <Salad />, name: language === 'ar' ? 'أعشاب' : 'Herbs' },
-    { icon: <Rice />, name: language === 'ar' ? 'أرز' : 'Rice' },
+    { icon: <Wheat />, name: language === 'ar' ? 'أرز' : 'Rice' },
     { icon: <ShoppingBag />, name: language === 'ar' ? 'معلبات' : 'Cans' },
     { icon: <Coffee />, name: language === 'ar' ? 'قهوة' : 'Coffee' },
     { icon: <Pizza />, name: language === 'ar' ? 'وجبات خفيفة' : 'Snacks' },
@@ -159,9 +160,7 @@ const Index = () => {
                   >
                     <div className="flex flex-col items-center gap-3">
                       <div className="p-3 rounded-full bg-background">
-                        {React.cloneElement(category.icon, { 
-                          className: "w-6 h-6 text-text"
-                        })}
+                        {category.icon}
                       </div>
                       <span className="text-sm font-medium text-text text-center whitespace-normal">
                         {category.name}
