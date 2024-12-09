@@ -153,10 +153,10 @@ const Footer = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:text-white hover:bg-accent rounded-full p-2 transition-all duration-300"
+              className="text-accent hover:text-black hover:bg-accent rounded-full p-2 transition-all duration-300"
               aria-label={social.label}
             >
-              <social.icon className="w-6 h-6" />
+              <social.icon className="w-5 h-5" />
             </a>
           ))}
         </div>
