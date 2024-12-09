@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, ImageIcon } from "lucide-react";
 
 const HowToUseSection = () => {
   const { language, isRTL } = useLanguage();
@@ -33,13 +33,22 @@ const HowToUseSection = () => {
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           {language === 'ar' ? "كيفية استخدام التطبيق" : "How to Use the App"}
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-12">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? '' : 'lg:flex-row-reverse'}`}>
+          {/* Image Section - Now First */}
+          <div className="relative aspect-square bg-background-light rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-text-light gap-4">
+              <ImageIcon className="w-12 h-12 text-text-light/50" />
+              <span className="text-sm font-medium">Image Placeholder</span>
+            </div>
+          </div>
+
+          {/* Steps Section - Now Second */}
+          <div className="space-y-12 group/steps hover:shadow-[0_0_15px_rgba(170,255,11,0.1)] rounded-2xl p-6 transition-shadow duration-300">
             {steps.map((step, index) => (
               <div 
                 key={index}
@@ -59,12 +68,6 @@ const HowToUseSection = () => {
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="relative aspect-square bg-background-light rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center text-text-light">
-              <span className="text-sm">App Preview</span>
-            </div>
           </div>
         </div>
       </div>
