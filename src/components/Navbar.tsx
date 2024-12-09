@@ -12,13 +12,25 @@ const Navbar = () => {
     <nav className="fixed w-full bg-white shadow-sm z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
+          {/* Mobile Menu Button - visible only on mobile */}
+          <Button
+            variant="ghost"
+            className={`md:hidden ${isRTL ? 'order-2' : 'order-none'}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+
           {/* Logo - always on the left in LTR, right in RTL */}
-          <Link to="/" className={`text-2xl font-bold ${isRTL ? 'order-2' : 'order-none'}`}>
+          <Link 
+            to="/" 
+            className={`text-2xl font-bold ${isRTL ? 'order-1 md:order-none' : 'order-1'} md:${isRTL ? 'mr-0' : 'ml-0'} ${isMobileMenuOpen ? 'hidden md:block' : ''}`}
+          >
             🥬 Grocery
           </Link>
           
           {/* Desktop Navigation */}
-          <div className={`hidden md:flex items-center gap-6 ${isRTL ? 'order-1' : 'order-none'}`}>
+          <div className={`hidden md:flex items-center gap-6 ${isRTL ? 'order-2 mr-auto' : 'order-2 ml-auto'}`}>
             <Link to="/about" className="text-text hover:text-accent transition-colors">
               {language === 'ar' ? 'من نحن' : 'About Us'}
             </Link>
@@ -30,23 +42,14 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Language Switch and Mobile Menu Button */}
-          <div className={`flex items-center gap-4 ${isRTL ? 'order-none' : 'order-2'}`}>
-            <Button
-              variant="ghost"
-              onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-            >
-              {language === 'ar' ? 'English' : 'العربية'}
-            </Button>
-            
-            <Button
-              variant="ghost"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
+          {/* Language Switch */}
+          <Button
+            variant="ghost"
+            onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+            className={`${isRTL ? 'order-3' : 'order-3'} ${isMobileMenuOpen ? 'hidden md:flex' : ''}`}
+          >
+            {language === 'ar' ? 'English' : 'العربية'}
+          </Button>
         </div>
 
         {/* Mobile Menu */}
