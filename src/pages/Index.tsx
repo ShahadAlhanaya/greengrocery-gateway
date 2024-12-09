@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel";
 
 const Index = () => {
-  const { language } = useLanguage();
+  const { language, isRTL } = useLanguage();
 
   const categories = [
     { icon: <Apple />, name: language === 'ar' ? 'فواكه' : 'Fruits' },
@@ -149,10 +149,11 @@ const Index = () => {
               align: "center",
               loop: true,
               dragFree: true,
+              direction: isRTL ? 'rtl' : 'ltr'
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-3">
+            <CarouselContent className={`-ml-2 md:-ml-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {categories.map((category, index) => (
                 <CarouselItem 
                   key={index} 
@@ -178,10 +179,10 @@ const Index = () => {
               ))}
             </CarouselContent>
             <CarouselPrevious 
-              className="hidden md:flex -left-4 h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text"
+              className={`hidden md:flex ${isRTL ? '-right-4' : '-left-4'} h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text`}
             />
             <CarouselNext 
-              className="hidden md:flex -right-4 h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text"
+              className={`hidden md:flex ${isRTL ? '-left-4' : '-right-4'} h-8 w-8 border-none bg-accent/10 hover:bg-accent text-text hover:text-text`}
             />
           </Carousel>
         </div>
