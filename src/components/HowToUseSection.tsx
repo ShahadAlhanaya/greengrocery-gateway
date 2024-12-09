@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowRight, ArrowLeft, ImageIcon } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 const HowToUseSection = () => {
   const { language, isRTL } = useLanguage();
@@ -29,8 +29,6 @@ const HowToUseSection = () => {
     },
   ];
 
-  const Arrow = isRTL ? ArrowLeft : ArrowRight;
-
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -40,7 +38,7 @@ const HowToUseSection = () => {
         
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? '' : 'lg:flex-row-reverse'}`}>
           {/* Image Section - Now First */}
-          <div className="relative aspect-square bg-background-light rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+          <div className="relative w-full max-w-md mx-auto aspect-square bg-background-light rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
             <div className="absolute inset-0 flex flex-col items-center justify-center text-text-light gap-4">
               <ImageIcon className="w-12 h-12 text-text-light/50" />
               <span className="text-sm font-medium">Image Placeholder</span>
@@ -55,15 +53,12 @@ const HowToUseSection = () => {
                 className="flex gap-6 items-start group animate-fade-in"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                  <span className="text-lg font-bold text-text">{step.number}</span>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center transition-all duration-300 group-hover:bg-accent">
+                  <span className="text-lg font-bold text-text transition-colors duration-300 group-hover:text-white">{step.number}</span>
                 </div>
                 
                 <div className="flex-grow">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-xl font-bold text-text">{step.title}</h3>
-                    <Arrow className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
+                  <h3 className="text-xl font-bold text-text mb-2">{step.title}</h3>
                   <p className="text-text-light">{step.description}</p>
                 </div>
               </div>
