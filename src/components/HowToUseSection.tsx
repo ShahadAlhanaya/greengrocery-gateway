@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ImageIcon } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const HowToUseSection = () => {
   const { language, isRTL } = useLanguage();
@@ -40,8 +40,7 @@ const HowToUseSection = () => {
           {/* Image Section - Now First */}
           <div className="relative w-full max-w-md mx-auto aspect-square bg-background-light rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
             <div className="absolute inset-0 flex flex-col items-center justify-center text-text-light gap-4">
-              <ImageIcon className="w-12 h-12 text-text-light/50" />
-              <span className="text-sm font-medium">Image Placeholder</span>
+              <ShoppingCart className="w-24 h-24 text-accent animate-bounce" />
             </div>
           </div>
 
