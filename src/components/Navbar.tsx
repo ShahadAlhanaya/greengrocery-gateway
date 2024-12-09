@@ -12,23 +12,13 @@ const Navbar = () => {
     <nav className="fixed w-full bg-white shadow-sm z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Mobile Menu Button */}
-          <div className={`md:hidden ${isRTL ? 'order-3' : 'order-1'}`}>
-            <Button
-              variant="ghost"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-
-          {/* Logo */}
-          <Link to="/" className={`text-2xl font-bold ${isRTL ? 'order-2' : 'order-2'}`}>
+          {/* Logo - always on the left in LTR, right in RTL */}
+          <Link to="/" className={`text-2xl font-bold ${isRTL ? 'order-2' : 'order-none'}`}>
             🥬 Grocery
           </Link>
           
           {/* Desktop Navigation */}
-          <div className={`hidden md:flex items-center gap-6 ${isRTL ? 'order-1' : 'order-3'}`}>
+          <div className={`hidden md:flex items-center gap-6 ${isRTL ? 'order-1' : 'order-none'}`}>
             <Link to="/about" className="text-text hover:text-accent transition-colors">
               {language === 'ar' ? 'من نحن' : 'About Us'}
             </Link>
@@ -40,13 +30,21 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Language Switch */}
-          <div className={`${isRTL ? 'order-1' : 'order-3'} md:block`}>
+          {/* Language Switch and Mobile Menu Button */}
+          <div className={`flex items-center gap-4 ${isRTL ? 'order-none' : 'order-2'}`}>
             <Button
               variant="ghost"
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
             >
               {language === 'ar' ? 'English' : 'العربية'}
+            </Button>
+            
+            <Button
+              variant="ghost"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
