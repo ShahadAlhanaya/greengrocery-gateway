@@ -47,20 +47,20 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background-light py-16">
+    <footer className="bg-black py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">
+            <h3 className="font-bold text-lg mb-6 text-white">
               {language === 'ar' ? 'روابط سريعة' : 'Quick Links'}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-text-light hover:text-accent transition-colors"
+                    className="text-gray-400 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -71,15 +71,15 @@ const Footer = () => {
 
           {/* Help Section */}
           <div>
-            <h3 className="font-bold text-lg mb-4">
+            <h3 className="font-bold text-lg mb-6 text-white">
               {language === 'ar' ? 'مساعدة' : 'Help'}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {helpLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-text-light hover:text-accent transition-colors"
+                    className="text-gray-400 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -90,7 +90,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h3 className="font-bold text-lg mb-4">
+            <h3 className="font-bold text-lg mb-6 text-white">
               {language === 'ar' ? 'تواصل معنا' : 'Connect With Us'}
             </h3>
             <div className="flex flex-wrap gap-4">
@@ -100,18 +100,18 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-light hover:text-accent transition-colors"
+                  className="text-gray-400 hover:text-accent transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-6 h-6" />
+                  <social.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Download App */}
-          <div className="lg:col-span-2">
-            <h3 className="font-bold text-lg mb-4">
+          <div>
+            <h3 className="font-bold text-lg mb-6 text-white">
               {language === 'ar' ? 'حمل تطبيقنا' : 'Download Our App'}
             </h3>
             <div className="flex flex-col gap-4">
@@ -126,7 +126,7 @@ const Footer = () => {
                   <img
                     src={store.imgSrc}
                     alt={store.alt}
-                    className="h-12 w-auto"
+                    className="h-10 w-auto"
                   />
                 </a>
               ))}
@@ -135,32 +135,25 @@ const Footer = () => {
         </div>
 
         {/* Company Info */}
-        <div className="border-t border-border pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center gap-4 mb-4">
-                <img
-                  src="/vat-certificate.png"
-                  alt="VAT Certificate"
-                  className="h-16 w-auto"
-                />
-                <div>
-                  <p className="font-medium">CR 36633636</p>
-                  <p className="font-medium">VAT 3838383838322323</p>
-                </div>
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex justify-center">
+            <div className="flex items-center gap-4 mb-4">
+              <img
+                src="/vat-certificate.png"
+                alt="VAT Certificate"
+                className="h-16 w-auto"
+              />
+              <div className="text-gray-400">
+                <p className="font-medium">CR 36633636</p>
+                <p className="font-medium">VAT 3838383838322323</p>
               </div>
-              <p className="text-text-light">
-                {language === 'ar' 
-                  ? '123 شارع رئيسي، المدينة، الدولة' 
-                  : '123 Main Street, City, Country'}
-              </p>
             </div>
-            <div className="text-text-light text-sm md:text-right">
-              © {new Date().getFullYear()} 🥬 Grocery. 
-              {language === 'ar' 
-                ? 'جميع الحقوق محفوظة' 
-                : 'All rights reserved.'}
-            </div>
+          </div>
+          <div className="text-gray-400 text-sm text-center mt-4">
+            © {new Date().getFullYear()} 🥬 Grocery. 
+            {language === 'ar' 
+              ? 'جميع الحقوق محفوظة' 
+              : 'All rights reserved.'}
           </div>
         </div>
       </div>
