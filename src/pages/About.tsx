@@ -1,4 +1,10 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 interface Milestone {
   year: number;
@@ -59,8 +65,32 @@ const milestones: Milestone[] = [
   },
 ];
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const About = () => {
   const { language, isRTL } = useLanguage();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const form = useForm<ContactFormData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (data: ContactFormData) => {
+    console.log(data);
+    setIsSubmitted(true);
+    form.reset();
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <div className="container mx-auto px-6 md:px-8 lg:px-12 py-12 max-w-4xl animate-fade-in">
@@ -93,7 +123,7 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className={`${isRTL ? "text-right" : "text-left"}`}>
+      <section className={`mb-12 ${isRTL ? "text-right" : "text-left"}`}>
         <h2 className="text-2xl font-semibold mb-6">
           {language === "en" ? "Our Journey" : "رحلتنا"}
         </h2>
@@ -119,6 +149,119 @@ const About = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className={`mb-12 ${isRTL ? "text-right" : "text-left"}`}>
+        <h2 className="text-2xl font-semibold mb-6">
+          {language === "en" ? "Contact Information" : "معلومات الاتصال"}
+        </h2>
+        <div className="space-y-4 text-text-light">
+          <p>
+            {language === "en" ? "Phone" : "الهاتف"}: +1 (555) 123-4567
+          </p>
+          <p>
+            {language === "en" ? "Email" : "البريد الإلكتروني"}: support@groceryapp.com
+          </p>
+          <p>
+            {language === "en" ? "Address" : "العنوان"}: 
+            {language === "en" 
+              ? " 123 Grocery Street, Cityville, Country"
+              : " شارع البقالة 123، سيتيفيل، البلد"}
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className={`${isRTL ? "text-right" : "text-left"}`}>
+        <h2 className="text-2xl font-semibold mb-6">
+          {language === "en" ? "Contact Us" : "اتصل بنا"}
+        </h2>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    {language === "en" ? "Name" : "الاسم"}
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder={language === "en" ? "Your name" : "اسمك"} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    {language === "en" ? "Email" : "البريد الإلكتروني"}
+                  </FormLabel>
+                  <FormControl>
+                    <Input 
+                      type="email" 
+                      placeholder={language === "en" ? "Your email" : "بريدك الإلكتروني"} 
+                      {...field} 
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    {language === "en" ? "Subject" : "الموضوع"}
+                  </FormLabel>
+                  <FormControl>
+                    <Input 
+                      placeholder={language === "en" ? "Message subject" : "موضوع الرسالة"} 
+                      {...field} 
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    {language === "en" ? "Message" : "الرسالة"}
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea 
+                      placeholder={language === "en" ? "Your message" : "رسالتك"} 
+                      className="min-h-[150px]" 
+                      {...field} 
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full md:w-auto">
+              {language === "en" ? "Send Message" : "إرسال الرسالة"}
+            </Button>
+            {isSubmitted && (
+              <p className="text-green-600 mt-4">
+                {language === "en" 
+                  ? "Thank you for your message. We'll get back to you soon!"
+                  : "شكراً لرسالتك. سنعود إليك قريباً!"}
+              </p>
+            )}
+          </form>
+        </Form>
       </section>
     </div>
   );
