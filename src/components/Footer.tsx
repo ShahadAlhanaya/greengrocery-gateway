@@ -137,17 +137,17 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-6 mb-8">
           {socialLinks.map((social) => (
             <a
               key={social.label}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-accent transition-colors"
+              className="text-accent hover:text-white hover:bg-accent rounded-full p-2 transition-all duration-300"
               aria-label={social.label}
             >
-              <social.icon className="w-4 h-4" />
+              <social.icon className="w-6 h-6" />
             </a>
           ))}
         </div>
