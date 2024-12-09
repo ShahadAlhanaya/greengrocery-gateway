@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import StatsSection from '@/components/StatsSection';
+import HowToUseSection from '@/components/HowToUseSection';
 
 const Index = () => {
   const { language, isRTL } = useLanguage();
@@ -182,6 +183,8 @@ const Index = () => {
       </section>
 
       <StatsSection />
+
+      <HowToUseSection />
     </main>
   );
 };
