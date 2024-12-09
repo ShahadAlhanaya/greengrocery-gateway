@@ -39,8 +39,12 @@ const HowToUseSection = () => {
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? '' : 'lg:flex-row-reverse'}`}>
           {/* Image Section - Now First */}
           <div className="relative w-full max-w-md mx-auto aspect-square bg-background-light rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-text-light gap-4">
-              <ShoppingCart className="w-24 h-24 text-accent animate-bounce" />
+            <div className="absolute inset-0">
+              <img 
+                src="/assets/images/groceriescart.jpg" 
+                alt="Grocery Cart" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
