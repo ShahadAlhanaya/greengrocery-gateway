@@ -35,14 +35,12 @@ const Index = () => {
     <main>
       <section className="relative min-h-[600px] flex items-center justify-center py-20">
         <div 
-          className="absolute inset-0 z-0" 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/hero-bg.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundImage: "url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop')",
           }}
         >
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">

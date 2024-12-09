@@ -60,17 +60,24 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-6">
             {language === 'en' ? 'Our Journey' : 'مسيرتنا'}
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-12">
             {milestones.map((milestone, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-accent" />
+              <div 
+                key={index} 
+                className={`flex items-start gap-6 opacity-0 animate-[fade-in_0.5s_ease-out_forwards] ${isRTL ? 'flex-row-reverse' : ''}`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="flex-shrink-0 relative">
+                  <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center transform transition-transform hover:scale-110 hover:rotate-12">
+                    <Clock className="h-8 w-8 text-text" />
                   </div>
+                  {index !== milestones.length - 1 && (
+                    <div className={`absolute w-0.5 bg-accent/20 h-24 ${isRTL ? '-right-3' : '-left-3'} top-20 transform ${isRTL ? 'translate-x-1/2' : '-translate-x-1/2'}`} />
+                  )}
                 </div>
-                <div>
-                  <div className="font-semibold text-lg mb-1">{milestone.year}</div>
-                  <p className="text-text-light">
+                <div className="flex-grow pt-2">
+                  <div className="font-bold text-2xl mb-2 text-accent">{milestone.year}</div>
+                  <p className="text-text-light text-lg">
                     {language === 'en' ? milestone.en : milestone.ar}
                   </p>
                 </div>

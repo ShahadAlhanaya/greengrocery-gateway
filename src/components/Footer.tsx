@@ -5,8 +5,16 @@ import { Instagram, Twitter, Share2, Linkedin, Youtube, Facebook } from "lucide-
 const Footer = () => {
   const { language } = useLanguage();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const quickLinks = [
-    { href: '/', label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home' },
+    { 
+      href: '/', 
+      label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home',
+      onClick: scrollToTop 
+    },
     { href: '/about', label: language === 'ar' ? 'من نحن' : 'About Us' },
     { href: '/shop', label: language === 'ar' ? 'التسوق' : 'Shopping' },
     { href: '/privacy', label: language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' },
@@ -65,6 +73,7 @@ const Footer = () => {
                   <Link
                     to={link.href}
                     className="text-gray-400 hover:text-accent transition-colors"
+                    onClick={link.onClick}
                   >
                     {link.label}
                   </Link>
