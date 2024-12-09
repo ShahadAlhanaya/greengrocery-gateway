@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Tiktok, Linkedin, Youtube, Facebook } from "lucide-react";
+import { Instagram, Twitter, Share2, Linkedin, Youtube, Facebook } from "lucide-react";
 
 const Footer = () => {
   const { language } = useLanguage();
@@ -22,7 +22,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Twitter, href: '#', label: 'X (Twitter)' },
-    { icon: Tiktok, href: '#', label: 'TikTok' },
+    { icon: Share2, href: '#', label: 'TikTok' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Youtube, href: '#', label: 'YouTube' },
     { icon: Facebook, href: '#', label: 'Facebook' },
