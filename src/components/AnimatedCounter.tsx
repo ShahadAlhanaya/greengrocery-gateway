@@ -7,7 +7,7 @@ interface AnimatedCounterProps {
   suffix?: string;
 }
 
-const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ end, duration = 1000, suffix = '' }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
   const { ref, inView } = useInView({
     threshold: 0.3,
@@ -17,7 +17,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: AnimatedCounterP
 
   useEffect(() => {
     if (inView) {
-      const steps = 60;
+      const steps = 30; // Reduced steps for faster animation
       const increment = end / steps;
       let current = 0;
       

@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import AnimatedCounter from '@/components/AnimatedCounter';
+import StatsSection from '@/components/StatsSection';
 
 const Index = () => {
   const { language, isRTL } = useLanguage();
@@ -28,24 +28,6 @@ const Index = () => {
     { icon: <Cherry />, name: language === 'ar' ? 'مستلزمات الحيوانات الأليفة' : 'Pet Supplies' },
     { icon: <ShoppingBag />, name: language === 'ar' ? 'صيدلية' : 'Pharmacy' },
     { icon: <ShoppingBag />, name: language === 'ar' ? 'مكياج' : 'Makeup' },
-  ];
-
-  const stats = [
-    {
-      value: 3,
-      suffix: language === 'ar' ? ' مليون+' : 'M+',
-      description: language === 'ar' ? 'عنصر تم تسليمه' : 'items delivered'
-    },
-    {
-      value: 600000,
-      suffix: '+',
-      description: language === 'ar' ? 'خبير بقالة' : 'grocery experts'
-    },
-    {
-      value: 45,
-      suffix: language === 'ar' ? ' مليون+' : 'M+',
-      description: language === 'ar' ? 'طلب تم تسليمه' : 'orders delivered'
-    }
   ];
 
   return (
@@ -199,29 +181,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className="flex flex-col items-center text-center p-6 rounded-lg bg-background-light animate-fade-in"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <h3 className="text-4xl md:text-5xl font-bold mb-3 text-text">
-                  <AnimatedCounter 
-                    end={stat.value} 
-                    suffix={stat.suffix}
-                  />
-                </h3>
-                <p className="text-text-light text-lg">
-                  {stat.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsSection />
     </main>
   );
 };
