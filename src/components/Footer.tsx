@@ -7,8 +7,8 @@ import CompanyInfo from "./footer/CompanyInfo";
 const Footer = () => {
   return (
     <footer className="bg-black py-16">
-      <div className="container mx-auto px-4 max-w-[1680px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto w-[120%] -ml-[10%]">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <FooterLinks />
           <AppDownloadSection />
         </div>
