@@ -39,18 +39,18 @@ const Footer = () => {
   const appStores = [
     { 
       href: '#', 
-      imgSrc: '/app-store.png', 
-      alt: language === 'ar' ? 'متجر آبل' : 'App Store' 
+      imgSrc: 'assets/images/appstore-download.png', 
+      alt: language === 'ar' ? 'متجر آبل' : 'Download for iOS' 
     },
     { 
       href: '#', 
-      imgSrc: '/google-play.png', 
-      alt: language === 'ar' ? 'متجر جوجل بلاي' : 'Google Play' 
+      imgSrc: 'assets/images/googleplay-download.png', 
+      alt: language === 'ar' ? 'متجر جوجل بلاي' : 'Download for Android' 
     },
     { 
       href: '#', 
-      imgSrc: '/app-gallery.png', 
-      alt: language === 'ar' ? 'متجر هواوي' : 'AppGallery' 
+      imgSrc: 'assets/images/appgallery-download.png', 
+      alt: language === 'ar' ? 'متجر هواوي' : 'Download for Huawei' 
     },
   ];
 
@@ -130,12 +130,12 @@ const Footer = () => {
                   href={store.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-transform hover:scale-105"
+                  className="w-[140px] transition-transform hover:scale-105"
                 >
                   <img
                     src={store.imgSrc}
                     alt={store.alt}
-                    className="h-10 w-auto"
+                    className="w-full h-auto"
                   />
                 </a>
               ))}
