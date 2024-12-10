@@ -14,8 +14,10 @@ const CompanyInfo = () => {
             className="h-16 w-auto object-contain"
           />
           <div className="text-gray-400 text-sm">
-            <p>CR 36633636</p>
-            <p>VAT 3838383838322323</p>
+            <p>{language === "ar" ? "السجل التجاري" : "CR "} 36633636</p>
+            <p>
+              {language === "ar" ? "الرقم الضريبي" : "VAT "} 3838383838322323
+            </p>
           </div>
         </div>
       </div>
