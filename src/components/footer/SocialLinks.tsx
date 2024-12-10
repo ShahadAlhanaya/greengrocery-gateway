@@ -9,12 +9,24 @@ import {
 } from "lucide-react";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "X (Twitter)" },
-  { icon: Share2, href: "#", label: "TikTok" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Facebook, href: "#", label: "Facebook" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/NanaAppSA/",
+    label: "Instagram",
+  },
+  { icon: Twitter, href: "https://x.com/NanaAppSA", label: "X (Twitter)" },
+  { icon: Share2, href: "https://www.tiktok.com/@nanaapp.sa", label: "TikTok" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/nana-app/",
+    label: "LinkedIn",
+  },
+  // { icon: Youtube, href: "#", label: "YouTube" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/NanaAppSA",
+    label: "Facebook",
+  },
 ];
 
 const SocialLinks = () => (

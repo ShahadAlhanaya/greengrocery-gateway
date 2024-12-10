@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const FooterLinks = () => {
   const { language } = useLanguage();
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -25,7 +25,10 @@ const FooterLinks = () => {
 
   const helpLinks = [
     { href: "/faq", label: language === "ar" ? "الأسئلة الشائعة" : "FAQ" },
-    { href: "/contact", label: language === "ar" ? "اتصل بنا" : "Contact Us" },
+    {
+      href: "/contact",
+      label: language === "ar" ? "تواصل معنا" : "Contact Us",
+    },
   ];
 
   const joinUsLinks = [

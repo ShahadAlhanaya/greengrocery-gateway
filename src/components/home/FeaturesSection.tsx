@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Truck, Package, Clock } from "lucide-react";
 
@@ -14,12 +14,12 @@ const FeaturesSection = () => {
               <Truck className="h-8 w-8 text-text" />
             </div>
             <h3 className="text-xl font-semibold mb-3">
-              {language === 'ar' ? 'توصيل إلى باب المنزل' : 'Doorstep Delivery'}
+              {language === "ar" ? "توصيل لأي مكان" : "Delivery Anywhere"}
             </h3>
             <p className="text-text-light">
-              {language === 'ar' 
-                ? 'توصيل مريح إلى باب منزلك يوفر عليك الوقت والجهد.'
-                : 'Convenient delivery right to your doorstep, saving you time and effort.'}
+              {language === "ar"
+                ? "كل اللي عليك تسويه انك تضيف تفاصيل عنوانك عشان يوصلك الطلب بأعلى جودة."
+                : "Simply add your address details, and your order will arrive with top-notch quality"}
             </p>
           </div>
 
@@ -28,12 +28,14 @@ const FeaturesSection = () => {
               <Package className="h-8 w-8 text-text" />
             </div>
             <h3 className="text-xl font-semibold mb-3">
-              {language === 'ar' ? 'تنوع المنتجات' : 'Variety of Products'}
+              {language === "ar"
+                ? "جميع أنواع المقاضي"
+                : "Wide range of products"}
             </h3>
             <p className="text-text-light">
-              {language === 'ar'
-                ? 'تسوق أكثر من 22,000 منتج لتلبية جميع احتياجاتك.'
-                : 'Explore over 22,000 products to meet your every need.'}
+              {language === "ar"
+                ? "نعناع إكسبرس يوفر لك أكثر من 2,000 منتج لاحتياجاتك اليومية، ونعناع هايبر أكثر من 22,000"
+                : "Explore over 2,000 daily essentials with Nana Express, and more than 22,000 products with Nana Hyper"}
             </p>
           </div>
 
@@ -42,12 +44,12 @@ const FeaturesSection = () => {
               <Clock className="h-8 w-8 text-text" />
             </div>
             <h3 className="text-xl font-semibold mb-3">
-              {language === 'ar' ? 'التوصيل في أي وقت' : 'Anytime Delivery'}
+              {language === "ar" ? "توصيل في أي وقت" : "Anytime Delivery"}
             </h3>
             <p className="text-text-light">
-              {language === 'ar'
-                ? 'اختر التوصيل الفوري الآن أو جدول موعد التوصيل المناسب لك.'
-                : 'Choose express delivery now or schedule it at a time that works for you.'}
+              {language === "ar"
+                ? "اطلب الحين ويوصلك فورًا أو جهز سلتك الآن وجدول وقت التوصيل اللي يناسبك"
+                : "Order now for quick delivery or schedule your cart for a time that suits you best"}
             </p>
           </div>
         </div>
