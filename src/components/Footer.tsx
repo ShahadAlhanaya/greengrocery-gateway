@@ -1,56 +1,72 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Share2, Linkedin, Youtube, Facebook } from "lucide-react";
+import {
+  Instagram,
+  Twitter,
+  Share2,
+  Linkedin,
+  Youtube,
+  Facebook,
+} from "lucide-react";
 
 const Footer = () => {
   const { language } = useLanguage();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const quickLinks = [
-    { href: '/', label: language === 'ar' ? 'الصفحة الرئيسية' : 'Home' },
-    { href: '/about', label: language === 'ar' ? 'من نحن' : 'About Us' },
-    { href: '/shop', label: language === 'ar' ? 'التسوق' : 'Shopping' },
-    { href: '/privacy', label: language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' },
-    { href: '/terms', label: language === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions' },
+    { href: "/", label: language === "ar" ? "الصفحة الرئيسية" : "Home" },
+    { href: "/about", label: language === "ar" ? "من نحن" : "About Us" },
+    { href: "/shop", label: language === "ar" ? "التسوق" : "Shopping" },
+    {
+      href: "/privacy",
+      label: language === "ar" ? "سياسة الخصوصية" : "Privacy Policy",
+    },
+    {
+      href: "/terms",
+      label: language === "ar" ? "الشروط والأحكام" : "Terms & Conditions",
+    },
   ];
 
   const helpLinks = [
-    { href: '/faq', label: language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ' },
-    { href: '/contact', label: language === 'ar' ? 'اتصل بنا' : 'Contact Us' },
+    { href: "/faq", label: language === "ar" ? "الأسئلة الشائعة" : "FAQ" },
+    { href: "/contact", label: language === "ar" ? "اتصل بنا" : "Contact Us" },
   ];
 
   const joinUsLinks = [
-    { href: '/become-supplier', label: language === 'ar' ? 'كن موردًا' : 'Become a Supplier' },
-    { href: '/careers', label: language === 'ar' ? 'الوظائف' : 'Careers' },
+    {
+      href: "/become-supplier",
+      label: language === "ar" ? "كن موردًا" : "Become a Supplier",
+    },
+    { href: "/careers", label: language === "ar" ? "الوظائف" : "Careers" },
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'X (Twitter)' },
-    { icon: Share2, href: '#', label: 'TikTok' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "#", label: "X (Twitter)" },
+    { icon: Share2, href: "#", label: "TikTok" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "#", label: "Facebook" },
   ];
 
   const appStores = [
-    { 
-      href: '#', 
-      imgSrc: 'assets/images/appstore-download.png', 
-      alt: language === 'ar' ? 'متجر آبل' : 'Download for iOS' 
+    {
+      href: "https://itunes.apple.com/sa/app/n-na-markt/id1055344588?mt=8",
+      imgSrc: "assets/images/appstore-download.png",
+      alt: language === "ar" ? "متجر آبل" : "Download for iOS",
     },
-    { 
-      href: '#', 
-      imgSrc: 'assets/images/googleplay-download.png', 
-      alt: language === 'ar' ? 'متجر جوجل بلاي' : 'Download for Android' 
+    {
+      href: "https://play.google.com/store/apps/details?id=com.exa.nanamarket",
+      imgSrc: "assets/images/googleplay-download.png",
+      alt: language === "ar" ? "متجر جوجل بلاي" : "Download for Android",
     },
-    { 
-      href: '#', 
-      imgSrc: 'assets/images/appgallery-download.png', 
-      alt: language === 'ar' ? 'متجر هواوي' : 'Download for Huawei' 
+    {
+      href: "https://appgallery.huawei.com/app/C103339745",
+      imgSrc: "assets/images/appgallery-download.png",
+      alt: language === "ar" ? "متجر هواوي" : "Download for Huawei",
     },
   ];
 
@@ -61,7 +77,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white">
-              {language === 'ar' ? 'روابط سريعة' : 'Quick Links'}
+              {language === "ar" ? "روابط سريعة" : "Quick Links"}
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -81,7 +97,7 @@ const Footer = () => {
           {/* Help Section */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white">
-              {language === 'ar' ? 'مساعدة' : 'Help'}
+              {language === "ar" ? "مساعدة" : "Help"}
             </h3>
             <ul className="space-y-3">
               {helpLinks.map((link) => (
@@ -101,7 +117,7 @@ const Footer = () => {
           {/* Join Us Section */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white">
-              {language === 'ar' ? 'انضم إلينا' : 'Join Us'}
+              {language === "ar" ? "انضم إلينا" : "Join Us"}
             </h3>
             <ul className="space-y-3">
               {joinUsLinks.map((link) => (
@@ -121,7 +137,7 @@ const Footer = () => {
           {/* Download App */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white">
-              {language === 'ar' ? 'حمل تطبيقنا' : 'Download Our App'}
+              {language === "ar" ? "حمل تطبيقنا" : "Download Our App"}
             </h3>
             <div className="flex flex-col gap-4">
               {appStores.map((store) => (
@@ -175,10 +191,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-gray-400 text-sm text-center mt-4">
-            © {new Date().getFullYear()} 🥬 Grocery. 
-            {language === 'ar' 
-              ? 'جميع الحقوق محفوظة' 
-              : 'All rights reserved.'}
+            © {new Date().getFullYear()} 🥬 Grocery.
+            {language === "ar" ? "جميع الحقوق محفوظة" : "All rights reserved."}
           </div>
         </div>
       </div>
