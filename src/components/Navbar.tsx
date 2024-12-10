@@ -24,9 +24,13 @@ const Navbar = () => {
           {/* Logo - always on the left in LTR, right in RTL */}
           <Link 
             to="/" 
-            className={`text-2xl font-bold ${isRTL ? 'order-1 md:order-none' : 'order-1'} md:${isRTL ? 'mr-0' : 'ml-0'} ${isMobileMenuOpen ? 'hidden md:block' : ''}`}
+            className={`${isRTL ? 'order-1 md:order-none' : 'order-1'} md:${isRTL ? 'mr-0' : 'ml-0'} ${isMobileMenuOpen ? 'hidden md:block' : ''}`}
           >
-            🥬 Grocery
+            <img 
+              src="/assets/images/logo-ar.png" 
+              alt="Grocery Logo" 
+              className="h-10 w-auto object-contain"
+            />
           </Link>
           
           {/* Desktop Navigation */}
