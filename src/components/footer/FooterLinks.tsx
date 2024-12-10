@@ -37,9 +37,9 @@ const FooterLinks = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 mb-12 w-full max-w-[1200px] mx-auto px-4">
       {/* Quick Links */}
-      <div>
+      <div className="min-w-[200px]">
         <h3 className="font-bold text-lg mb-6 text-white">
           {language === "ar" ? "روابط سريعة" : "Quick Links"}
         </h3>
@@ -48,7 +48,7 @@ const FooterLinks = () => {
             <li key={link.href}>
               <Link
                 to={link.href}
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-gray-400 hover:text-accent transition-colors whitespace-nowrap"
                 onClick={scrollToTop}
               >
                 {link.label}
@@ -59,7 +59,7 @@ const FooterLinks = () => {
       </div>
 
       {/* Help Section */}
-      <div>
+      <div className="min-w-[200px]">
         <h3 className="font-bold text-lg mb-6 text-white">
           {language === "ar" ? "مساعدة" : "Help"}
         </h3>
@@ -68,7 +68,7 @@ const FooterLinks = () => {
             <li key={link.href}>
               <Link
                 to={link.href}
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-gray-400 hover:text-accent transition-colors whitespace-nowrap"
                 onClick={scrollToTop}
               >
                 {link.label}
@@ -79,7 +79,7 @@ const FooterLinks = () => {
       </div>
 
       {/* Join Us Section */}
-      <div>
+      <div className="min-w-[200px]">
         <h3 className="font-bold text-lg mb-6 text-white">
           {language === "ar" ? "انضم إلينا" : "Join Us"}
         </h3>
@@ -88,7 +88,7 @@ const FooterLinks = () => {
             <li key={link.href}>
               <Link
                 to={link.href}
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-gray-400 hover:text-accent transition-colors whitespace-nowrap"
                 onClick={scrollToTop}
               >
                 {link.label}
