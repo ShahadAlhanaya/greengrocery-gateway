@@ -39,7 +39,7 @@ const HeroSection = () => {
               aria-label="Download for iOS"
             >
               <img
-                src="assets/images/appstore-download.png"
+                src="/assets/images/appstore-download.png"
                 alt="Download for iOS"
                 className="w-full h-auto"
               />
@@ -52,7 +52,7 @@ const HeroSection = () => {
               aria-label="Download for Android"
             >
               <img
-                src="assets/images/googleplay-download.png"
+                src="/assets/images/googleplay-download.png"
                 alt="Download for Android"
                 className="w-full h-auto"
               />
@@ -65,7 +65,7 @@ const HeroSection = () => {
               aria-label="Download for Huawei"
             >
               <img
-                src="assets/images/appgallery-download.png"
+                src="/assets/images/appgallery-download.png"
                 alt="Download for Huawei"
                 className="w-full h-auto"
               />
